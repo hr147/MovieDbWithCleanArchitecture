@@ -13,7 +13,7 @@ struct MovieListBuilder {
     static func build() -> MovieListViewController {
         let storyboard = UIStoryboard(storyboard: .movieList)
         let controller: MovieListViewController = storyboard.initialViewController()
-        
+        controller.viewModel = MovieListViewModel(moviesUseCase: DefaultMoviesUseCase())
         return controller
     }
 }

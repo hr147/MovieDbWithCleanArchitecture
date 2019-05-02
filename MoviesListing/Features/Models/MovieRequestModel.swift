@@ -9,5 +9,6 @@
 import Foundation
 
 struct MovieRequestModel: Encodable {
-
+    let page: Int
+    let api_key: String
 }

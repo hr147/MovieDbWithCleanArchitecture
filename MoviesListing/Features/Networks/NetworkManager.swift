@@ -48,7 +48,7 @@ extension Readable {
         return RequestConverter(method: .get,
                                 endPoint: router.route,
                                 parameters: parameters,
-                                encoder: JSONParameterEncoder.default)
+                                encoder: URLEncodedFormParameterEncoder.default)
     }
 }
 
@@ -95,7 +95,7 @@ struct APIRouter {
     static let baseURL = Constants.API.baseURL
     
     struct Movie: Readable {
-        let route: String = "/movie/now_playing"
+        let route: String = "movie/now_playing"
     }
     
 }
@@ -135,8 +135,14 @@ final class NetworkManager: APIDispatching {
         }
         
         let dispatchedRequest = AF.request(request)
+            .validate()
             .responseDecodable { (response: DataResponse<T>) in
-                print(response)
+                print(response.debugDescription)
+                debugPrint("\n\n========DATA==========\n\n")
+                if let _data = response.data, let utf8Text = String(data: _data, encoding: .utf8) {
+                    debugPrint(utf8Text)
+                }
+                debugPrint("\n\n========DATA==========\n\n")
                 completion(APIResponse(result: response.result))
         }
         

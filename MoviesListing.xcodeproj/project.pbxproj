@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE213A39227AE0F4004EA56C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE213A38227AE0F4004EA56C /* Movie.swift */; };
+		BE213A3E227B0026004EA56C /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE213A3B227B0026004EA56C /* Observable+Ext.swift */; };
+		BE213A3F227B0026004EA56C /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE213A3C227B0026004EA56C /* ErrorTracker.swift */; };
+		BE213A40227B0026004EA56C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE213A3D227B0026004EA56C /* ActivityIndicator.swift */; };
+		BE213A42227B0DF0004EA56C /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE213A41227B0DF0004EA56C /* UIAlertController+Extensions.swift */; };
 		BE2347162275C34700D8E5A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2347152275C34700D8E5A0 /* AppDelegate.swift */; };
 		BE23471D2275C34900D8E5A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE23471C2275C34900D8E5A0 /* Assets.xcassets */; };
 		BE2347202275C34900D8E5A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE23471E2275C34900D8E5A0 /* LaunchScreen.storyboard */; };
@@ -48,6 +53,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE213A38227AE0F4004EA56C /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		BE213A3B227B0026004EA56C /* Observable+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
+		BE213A3C227B0026004EA56C /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
+		BE213A3D227B0026004EA56C /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		BE213A41227B0DF0004EA56C /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		BE2347122275C34700D8E5A0 /* MoviesListing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesListing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2347152275C34700D8E5A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE23471C2275C34900D8E5A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +115,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE213A3A227AFFFE004EA56C /* RxUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				BE213A3D227B0026004EA56C /* ActivityIndicator.swift */,
+				BE213A3C227B0026004EA56C /* ErrorTracker.swift */,
+				BE213A3B227B0026004EA56C /* Observable+Ext.swift */,
+			);
+			path = RxUtilities;
+			sourceTree = "<group>";
+		};
 		BE2347092275C34700D8E5A0 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +206,7 @@
 		BEBF82152278300A004A8392 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BE213A3A227AFFFE004EA56C /* RxUtilities */,
 				BEBF823F22786C2E004A8392 /* Constants */,
 				BEBF823022785590004A8392 /* Controllers */,
 				BEBF822122783728004A8392 /* Extensions */,
@@ -227,6 +248,7 @@
 			children = (
 				BEBF823B22786B91004A8392 /* MovieRequestModel.swift */,
 				BEBF823D22786BBC004A8392 /* MovieResponseModel.swift */,
+				BE213A38227AE0F4004EA56C /* Movie.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -268,6 +290,7 @@
 				BEBF82262278519C004A8392 /* UIStoryboard+Extension.swift */,
 				BEBF82332278585F004A8392 /* UIColor+Extension.swift */,
 				BEBF823522785C2F004A8392 /* UIFont+Extension.swift */,
+				BE213A41227B0DF0004EA56C /* UIAlertController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -421,19 +444,24 @@
 				BEBF824122786D28004A8392 /* Constants.swift in Sources */,
 				BEBF822F22785461004A8392 /* MovieListBuilder.swift in Sources */,
 				BEBF824322786EEB004A8392 /* Networking.swift in Sources */,
+				BE213A3F227B0026004EA56C /* ErrorTracker.swift in Sources */,
 				BEBF82202278363B004A8392 /* MovieDetailViewController.swift in Sources */,
 				BEBF823E22786BBC004A8392 /* MovieResponseModel.swift in Sources */,
 				BEBF82342278585F004A8392 /* UIColor+Extension.swift in Sources */,
 				BEBF823C22786B91004A8392 /* MovieRequestModel.swift in Sources */,
+				BE213A42227B0DF0004EA56C /* UIAlertController+Extensions.swift in Sources */,
 				BEBF821E22783617004A8392 /* MovieListViewController.swift in Sources */,
 				BEBF823822786339004A8392 /* MovieListViewModel.swift in Sources */,
+				BE213A40227B0026004EA56C /* ActivityIndicator.swift in Sources */,
 				BEBF822522783A44004A8392 /* UITableView+Extension.swift in Sources */,
 				BEBF823622785C2F004A8392 /* UIFont+Extension.swift in Sources */,
 				BE2347162275C34700D8E5A0 /* AppDelegate.swift in Sources */,
+				BE213A39227AE0F4004EA56C /* Movie.swift in Sources */,
 				BEBF821422782F9C004A8392 /* AppNavigator.swift in Sources */,
 				BEBF822D22785348004A8392 /* MovieTableViewCell.swift in Sources */,
 				BEBF82272278519C004A8392 /* UIStoryboard+Extension.swift in Sources */,
 				BEBF823A227869B3004A8392 /* MoviesUseCase.swift in Sources */,
+				BE213A3E227B0026004EA56C /* Observable+Ext.swift in Sources */,
 				BEBF8232227855C1004A8392 /* AppNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

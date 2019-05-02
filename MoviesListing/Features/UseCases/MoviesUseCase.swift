@@ -9,7 +9,7 @@
 import RxSwift
 
 protocol MoviesUseCase {
-    func getMovies(for page: Int)
+    func getMovies(for page: Int) -> Single<MovieResponseModel>
 }
 
 final class DefaultMoviesUseCase {
@@ -21,7 +21,24 @@ final class DefaultMoviesUseCase {
 }
 
 extension DefaultMoviesUseCase: MoviesUseCase {
-    func getMovies(for page: Int) {
-        let router = APIRouter.Movie.get(parameters: nil as Int?)
+    
+    func getMovies(for page: Int) -> Single<MovieResponseModel> {
+        return .create(subscribe: { single -> Disposable in
+            let parameters = MovieRequestModel(page: page, api_key: Constants.Keys.api)
+            //Request configure with parameters
+            let router = APIRouter.Movie.get(parameters: parameters)
+            
+            //Dispatch request
+            let task = self.apiDispatcher.dispatch(with: router) { (response: APIResponse<MovieResponseModel>) in
+                switch response.result {
+                case .failure(let error): single(.error(error))
+                case .success(let value): single(.success(value))
+                }
+            }
+            
+            return Disposables.create {
+                task.cancel()
+            }
+        })
     }
 }
