@@ -18,13 +18,19 @@ class AppNavigationController: UINavigationController {
     private func setupUI() {
         navigationBar.barTintColor = .init(color: .standard(.themeColor))
         navigationBar.tintColor = .white
+        navigationController?.navigationBar.isTranslucent = false
         navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor.white,
              NSAttributedString.Key.font: UIFont(.avenirDemiBold, size: .standard(.h1))]
+        navigationBar.backgroundColor = .init(color: .standard(.themeColor))
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         super.pushViewController(viewController, animated: animated)
         viewController.navigationItem.backBarButtonItem = .init(title: "", style: .plain, target: nil, action: nil)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
