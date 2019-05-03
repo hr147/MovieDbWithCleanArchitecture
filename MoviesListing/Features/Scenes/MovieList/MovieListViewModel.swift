@@ -30,6 +30,7 @@ final class MovieListViewModel {
     private func updateMoviesDataSource(with responseModel: MovieResponseModel) {
         guard let movies = responseModel.movies, !movies.isEmpty else { return }
         
+        print("========Page \(currentPage) is Loaded======")
         moviesDataSource += movies
         currentPage += 1
     }
@@ -38,34 +39,44 @@ final class MovieListViewModel {
 extension MovieListViewModel {
     struct Input {
         let viewDidLoad: Signal<Void>
+        let scrollingDidEnd: Signal<Void>
     }
     
     struct Output {
         let reloadTableView: Signal<Void>
         let error: Driver<Error>
+        let fetching: Driver<Bool>
     }
     
     func transform(input: Input) -> Output {
         let errorTracker = ErrorTracker()
-        //let activityIndicator = ActivityIndicator()
+        let activityIndicator = ActivityIndicator()
         
-        let reloadView =  input.viewDidLoad
+        let nextPageLoad = input.scrollingDidEnd
             .asObservable()
+            .withLatestFrom(activityIndicator)
+            .filter({ $0 == false })
+            .mapToVoid()
+        
+        let reloadView =  Observable.merge(input.viewDidLoad.asObservable(),nextPageLoad)
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .map({ self.currentPage })
-            .distinctUntilChanged()
             .flatMap({
                 self.moviesUseCase.getMovies(for: $0)
-                .trackError(errorTracker)
+                    .trackActivity(activityIndicator)
+                    .trackError(errorTracker)
             })
             .do(onNext: updateMoviesDataSource)
             .mapToVoid()
+            .debug()
             .asSignal(onErrorJustReturn: ())
         
         let errorDriver = errorTracker.asDriver()
+        let fetchingDriver = activityIndicator.asDriver()
         
         return Output(
             reloadTableView: reloadView,
-            error: errorDriver)
+            error: errorDriver,
+            fetching: fetchingDriver)
     }
 }

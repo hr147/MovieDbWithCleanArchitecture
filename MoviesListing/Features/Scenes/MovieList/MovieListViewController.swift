@@ -12,11 +12,19 @@ import RxSwift
 
 
 class MovieListViewController: UITableViewController {
+    //UI Properties
+    @IBOutlet weak var nextPageActivityIndicatorView: UIActivityIndicatorView!
+    
+    //Injected Properties
     var viewModel: MovieListViewModel!
     var imageLazyLoader: LazyImageLoader!
     
+    //Private Properties
     private let viewDidLoadSubject = PublishSubject<Void>()
+    private let scrollToEndSubject = PublishSubject<Void>()
     private let disposeBag = DisposeBag()
+    
+    //MARK: - Controller Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +34,8 @@ class MovieListViewController: UITableViewController {
         viewDidLoadSubject.onNext(())
     }
     
+    //MARK: - Private Methods
+    
     private func setupUI() {
         title = "Movies"
     }
@@ -33,15 +43,17 @@ class MovieListViewController: UITableViewController {
     private func bindViewModel() {
         //setup input for View
         let input = MovieListViewModel.Input(
-            viewDidLoad: viewDidLoadSubject.asSignal(onErrorJustReturn: ()))
+            viewDidLoad: viewDidLoadSubject.asSignal(onErrorJustReturn: ()),
+            scrollingDidEnd: scrollToEndSubject.asSignal(onErrorJustReturn: ()))
         
         //transform input to output
         let output = viewModel.transform(input: input)
         
         //setup Output to View
         [output.reloadTableView.emit(onNext: tableView.reloadData),
-        output.error.drive(onNext: UIAlertController.showAlert)]
-        .forEach({ $0.disposed(by: disposeBag) })
+         output.fetching.drive(nextPageActivityIndicatorView.rx.isAnimating),
+         output.error.drive(onNext: UIAlertController.showAlert)]
+            .forEach({ $0.disposed(by: disposeBag) })
     }
     
     // MARK: - Table view data source
@@ -67,50 +79,11 @@ class MovieListViewController: UITableViewController {
         return cell
     }
     
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let isLastRow = indexPath.row == viewModel.numberOfRows - 1
+        
+        if isLastRow {
+            scrollToEndSubject.onNext(())
+        }
+    }
 }

@@ -23,6 +23,8 @@ final class DefaultMoviesUseCase {
 extension DefaultMoviesUseCase: MoviesUseCase {
     
     func getMovies(for page: Int) -> Single<MovieResponseModel> {
+        print("Next Request Hit==================>>>>>>>>>>>>>for page \(page)")
+        
         return .create(subscribe: { single -> Disposable in
             let parameters = MovieRequestModel(page: page, api_key: Constants.Keys.api)
             //Request configure with parameters
