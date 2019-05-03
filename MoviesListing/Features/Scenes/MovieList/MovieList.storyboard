@@ -29,10 +29,13 @@
                                             <rect key="frame" x="16" y="16" width="382" height="151.66666666666666"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="xUS-3q-ie7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="153.33333333333334" height="151.66666666666666"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="151.66666666666666"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="Po6-Ag-oab"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QjZ-so-0Fj">
-                                                    <rect key="frame" x="183.33333333333337" y="0.0" width="198.66666666666663" height="151.66666666666666"/>
+                                                    <rect key="frame" x="150" y="0.0" width="232" height="151.66666666666666"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA1-e8-H6V">
                                                             <rect key="frame" x="0.0" y="0.0" width="33.666666666666664" height="61"/>
@@ -43,11 +46,11 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Release : 12-3-2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Spw-Ab-Psw">
                                                             <rect key="frame" x="0.0" y="66" width="90.333333333333329" height="11.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="10"/>
-                                                            <color key="textColor" red="0.60784313725490191" green="0.63921568627450975" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" red="0.1529411765" green="0.73725490199999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="253" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nB4-KO-ZEA">
-                                                            <rect key="frame" x="0.0" y="82.666666666666671" width="198.66666666666666" height="69.000000000000014"/>
+                                                            <rect key="frame" x="0.0" y="82.666666666666671" width="230" height="69.000000000000014"/>
                                                             <string key="text">Hellboy comes to England, where he must defeat Nimue,Hellboy comes to England, where he must defeat NimueHellboy comes to England, where he must defeat Nimue</string>
                                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="12"/>
                                                             <color key="textColor" red="0.60784313725490191" green="0.63921568627450975" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
@@ -58,24 +61,23 @@
                                             </subviews>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYz-ro-Ynb">
-                                            <rect key="frame" x="149.33333333333334" y="107.66666666666667" width="40" height="40.000000000000014"/>
-                                            <color key="backgroundColor" red="0.1529411765" green="0.73725490199999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <rect key="frame" x="116" y="119.66666666666669" width="40" height="40"/>
+                                            <color key="backgroundColor" red="1" green="0.80392156862745101" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="SWF-rv-FID"/>
                                                 <constraint firstAttribute="width" secondItem="pYz-ro-Ynb" secondAttribute="height" multiplier="1:1" id="hzh-uj-d6A"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="oI1-Ck-zUZ" firstAttribute="top" secondItem="eZ0-BK-4i2" secondAttribute="top" constant="16" id="CIE-jZ-oQ2"/>
                                         <constraint firstItem="oI1-Ck-zUZ" firstAttribute="leading" secondItem="eZ0-BK-4i2" secondAttribute="leading" constant="16" id="JUz-k5-rrd"/>
-                                        <constraint firstItem="pYz-ro-Ynb" firstAttribute="bottom" secondItem="xUS-3q-ie7" secondAttribute="bottom" constant="-20" id="p40-jV-Ogn"/>
+                                        <constraint firstItem="pYz-ro-Ynb" firstAttribute="bottom" secondItem="xUS-3q-ie7" secondAttribute="bottom" constant="-8" id="p40-jV-Ogn"/>
                                         <constraint firstAttribute="trailing" secondItem="oI1-Ck-zUZ" secondAttribute="trailing" constant="16" id="py4-bb-fSP"/>
                                         <constraint firstAttribute="bottom" secondItem="oI1-Ck-zUZ" secondAttribute="bottom" constant="16" id="rDM-ew-wYf"/>
-                                        <constraint firstItem="xUS-3q-ie7" firstAttribute="width" secondItem="eZ0-BK-4i2" secondAttribute="width" multiplier="0.37" id="sjo-rN-Wes"/>
                                         <constraint firstItem="pYz-ro-Ynb" firstAttribute="trailing" secondItem="xUS-3q-ie7" secondAttribute="trailing" constant="20" id="zQ1-iG-OrJ"/>
                                     </constraints>
                                 </tableViewCellContentView>

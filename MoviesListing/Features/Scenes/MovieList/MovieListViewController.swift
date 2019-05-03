@@ -13,6 +13,8 @@ import RxSwift
 
 class MovieListViewController: UITableViewController {
     var viewModel: MovieListViewModel!
+    var imageLazyLoader: LazyImageLoader!
+    
     private let viewDidLoadSubject = PublishSubject<Void>()
     private let disposeBag = DisposeBag()
     
@@ -57,8 +59,10 @@ class MovieListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MovieTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        
-        let movie = viewModel[movieAtIndex: indexPath.row]
+        //Get view model for cell
+        let cellViewModel = viewModel[movieViewModelAtIndex: indexPath.row]
+        imageLazyLoader.loadImage(with: cell.posterImageView, withURL: cellViewModel.imageURL)
+        cell.configure(with: cellViewModel)
         
         return cell
     }

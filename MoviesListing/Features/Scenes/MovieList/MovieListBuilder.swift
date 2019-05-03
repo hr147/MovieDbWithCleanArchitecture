@@ -14,6 +14,7 @@ struct MovieListBuilder {
         let storyboard = UIStoryboard(storyboard: .movieList)
         let controller: MovieListViewController = storyboard.initialViewController()
         controller.viewModel = MovieListViewModel(moviesUseCase: DefaultMoviesUseCase())
+        controller.imageLazyLoader = KingfisherLazyImageLoader()
         return controller
     }
 }

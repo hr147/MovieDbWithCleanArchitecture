@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE124A10227C214700BDEC8E /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9F8EE5227C1D970062C9B9 /* Kingfisher.framework */; };
+		BE124A12227C260E00BDEC8E /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE124A11227C260E00BDEC8E /* RxRelay.framework */; };
 		BE213A39227AE0F4004EA56C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE213A38227AE0F4004EA56C /* Movie.swift */; };
 		BE213A3E227B0026004EA56C /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE213A3B227B0026004EA56C /* Observable+Ext.swift */; };
 		BE213A3F227B0026004EA56C /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE213A3C227B0026004EA56C /* ErrorTracker.swift */; };
@@ -20,6 +22,8 @@
 		BE406C822275CDAB00A81504 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE406C7E2275CDAB00A81504 /* RxCocoa.framework */; };
 		BE406C832275CDAB00A81504 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE406C7F2275CDAB00A81504 /* SnapKit.framework */; };
 		BE406C842275CDAB00A81504 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE406C802275CDAB00A81504 /* Alamofire.framework */; };
+		BE9F8EE4227C15110062C9B9 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9F8EE3227C15110062C9B9 /* MovieViewModel.swift */; };
+		BE9F8EE9227C207C0062C9B9 /* LazyImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9F8EE8227C207C0062C9B9 /* LazyImageLoader.swift */; };
 		BEBF821422782F9C004A8392 /* AppNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF821322782F9C004A8392 /* AppNavigator.swift */; };
 		BEBF821E22783617004A8392 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF821D22783617004A8392 /* MovieListViewController.swift */; };
 		BEBF82202278363B004A8392 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF821F2278363B004A8392 /* MovieDetailViewController.swift */; };
@@ -53,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE124A11227C260E00BDEC8E /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		BE213A38227AE0F4004EA56C /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		BE213A3B227B0026004EA56C /* Observable+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
 		BE213A3C227B0026004EA56C /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
@@ -71,6 +76,9 @@
 		BE406C7E2275CDAB00A81504 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		BE406C7F2275CDAB00A81504 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		BE406C802275CDAB00A81504 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		BE9F8EE3227C15110062C9B9 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		BE9F8EE5227C1D970062C9B9 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		BE9F8EE8227C207C0062C9B9 /* LazyImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyImageLoader.swift; sourceTree = "<group>"; };
 		BEBF821322782F9C004A8392 /* AppNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
 		BEBF821D22783617004A8392 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		BEBF821F2278363B004A8392 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE124A12227C260E00BDEC8E /* RxRelay.framework in Frameworks */,
+				BE124A10227C214700BDEC8E /* Kingfisher.framework in Frameworks */,
 				BE406C812275CDAB00A81504 /* RxSwift.framework in Frameworks */,
 				BE406C822275CDAB00A81504 /* RxCocoa.framework in Frameworks */,
 				BE406C832275CDAB00A81504 /* SnapKit.framework in Frameworks */,
@@ -176,12 +186,22 @@
 		BE406C7C2275CCDA00A81504 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE124A11227C260E00BDEC8E /* RxRelay.framework */,
+				BE9F8EE5227C1D970062C9B9 /* Kingfisher.framework */,
 				BE406C802275CDAB00A81504 /* Alamofire.framework */,
 				BE406C7E2275CDAB00A81504 /* RxCocoa.framework */,
 				BE406C7D2275CDAB00A81504 /* RxSwift.framework */,
 				BE406C7F2275CDAB00A81504 /* SnapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE9F8EE7227C1ED30062C9B9 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				BE9F8EE8227C207C0062C9B9 /* LazyImageLoader.swift */,
+			);
+			path = Wrappers;
 			sourceTree = "<group>";
 		};
 		BEBF821022782D46004A8392 /* AppStartUp */ = {
@@ -206,6 +226,7 @@
 		BEBF82152278300A004A8392 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BE9F8EE7227C1ED30062C9B9 /* Wrappers */,
 				BE213A3A227AFFFE004EA56C /* RxUtilities */,
 				BEBF823F22786C2E004A8392 /* Constants */,
 				BEBF823022785590004A8392 /* Controllers */,
@@ -269,6 +290,7 @@
 				BEBF821D22783617004A8392 /* MovieListViewController.swift */,
 				BEBF823722786339004A8392 /* MovieListViewModel.swift */,
 				BEBF822C22785348004A8392 /* MovieTableViewCell.swift */,
+				BE9F8EE3227C15110062C9B9 /* MovieViewModel.swift */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
@@ -422,6 +444,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -455,11 +479,13 @@
 				BE213A40227B0026004EA56C /* ActivityIndicator.swift in Sources */,
 				BEBF822522783A44004A8392 /* UITableView+Extension.swift in Sources */,
 				BEBF823622785C2F004A8392 /* UIFont+Extension.swift in Sources */,
+				BE9F8EE9227C207C0062C9B9 /* LazyImageLoader.swift in Sources */,
 				BE2347162275C34700D8E5A0 /* AppDelegate.swift in Sources */,
 				BE213A39227AE0F4004EA56C /* Movie.swift in Sources */,
 				BEBF821422782F9C004A8392 /* AppNavigator.swift in Sources */,
 				BEBF822D22785348004A8392 /* MovieTableViewCell.swift in Sources */,
 				BEBF82272278519C004A8392 /* UIStoryboard+Extension.swift in Sources */,
+				BE9F8EE4227C15110062C9B9 /* MovieViewModel.swift in Sources */,
 				BEBF823A227869B3004A8392 /* MoviesUseCase.swift in Sources */,
 				BE213A3E227B0026004EA56C /* Observable+Ext.swift in Sources */,
 				BEBF8232227855C1004A8392 /* AppNavigationController.swift in Sources */,

@@ -26,3 +26,12 @@ class MovieTableViewCell: UITableViewCell {
         setupUI()
     }
 }
+
+extension MovieTableViewCell {
+    func configure(with viewModel: MovieViewModel) {
+        titleLabel.text = viewModel.title
+        releaseDateLabel.text = viewModel.releaseDate
+        overviewLabel.text = viewModel.overview
+        ratingLabel.text = viewModel.rating
+    }
+}

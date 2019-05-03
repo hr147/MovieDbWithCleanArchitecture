@@ -19,8 +19,8 @@ final class MovieListViewModel {
         return moviesDataSource.count
     }
     
-    subscript (movieAtIndex index:Int) -> Movie {
-        return moviesDataSource[index]
+    subscript (movieViewModelAtIndex index: Int) -> MovieViewModel {
+        return MovieViewModel(movie: moviesDataSource[index])
     }
     
     init(moviesUseCase: MoviesUseCase) {
