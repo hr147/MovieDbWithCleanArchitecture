@@ -13,10 +13,10 @@ protocol MoviesUseCase {
 }
 
 final class DefaultMoviesUseCase {
-    let apiDispatcher: APIDispatching
+    let networking: Networking
     
-    init(apiDispatcher: APIDispatching = NetworkManager.shared) {
-        self.apiDispatcher = apiDispatcher
+    init(networking: Networking = NetworkManager()) {
+        self.networking = networking
     }
 }
 
@@ -24,19 +24,16 @@ extension DefaultMoviesUseCase: MoviesUseCase {
     
     func getMovies(for page: Int) -> Single<MovieResponseModel> {
         print("Next Request Hit==================>>>>>>>>>>>>>for page \(page)")
-        
         return .create(subscribe: { single -> Disposable in
             let parameters = MovieRequestModel(page: page, api_key: Constants.Keys.api)
-            //Request configure with parameters
-            let router = APIRouter.Movie.get(parameters: parameters)
+            let request = RequestBuilder(path: .init(endPoint: .movie), parameters: parameters)
             
-            //Dispatch request
-            let task = self.apiDispatcher.dispatch(with: router) { (response: APIResponse<MovieResponseModel>) in
+            let task = self.networking.get(request: request, completion: { (response: APIResponse<MovieResponseModel>) in
                 switch response.result {
                 case .failure(let error): single(.error(error))
                 case .success(let value): single(.success(value))
                 }
-            }
+            })
             
             return Disposables.create {
                 task.cancel()

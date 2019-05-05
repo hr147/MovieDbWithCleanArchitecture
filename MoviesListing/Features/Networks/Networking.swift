@@ -8,60 +8,66 @@
 
 import Foundation
 
-//1. Request
-
-protocol RequestConvertible {}
-
-//2. Request Routing
-
-/// These are routes throughout the application.
-/// Typically this is conformed to by methods routes.
-protocol Routable {
-    var route: String { get }
-    init()
-}
-
-/// Allows a route to perform the `.get` method
-protocol Readable: Routable {}
-
-/// Allows a route to perform the `.post` method
-protocol Creatable: Routable {}
-
-/// Allows a route to perform the `.put` method
-protocol Updatable: Routable {}
-
-/// Allows a route to perform the `.delete` method
-protocol Deletable: Routable {}
-
-/// Allows a route to perform the `.patch` method
-protocol Patchable: Routable {}
-
-extension Routable {
+//1. Define entire app endpoints and envirment
+struct APIPathBuilder {
+    let url: String
     
-    /// Create instance of Object that conforms to Routable
-    init() {
-        self.init()
+    init(baseURL: BaseURL = .enivirnemnt(.production), endPoint: EndPoint) {
+        self.url = baseURL.url + endPoint.rawValue
+    }
+    
+    enum Envirnment: String {
+        case production = "http://api.themoviedb.org/3/"
+    }
+    
+    enum EndPoint: String {
+        case movie = "movie/now_playing"
+    }
+    
+    enum BaseURL {
+        case custom(String)
+        case enivirnemnt(Envirnment)
+        
+        var url: String {
+            switch self {
+            case .custom(let value): return value
+            case .enivirnemnt(let enriment): return enriment.rawValue
+            }
+        }
     }
 }
 
+//2. Request Builder
+struct RequestBuilder<Parameter: Encodable> {
+    let path: APIPathBuilder
+    let parameters: Parameter
+    let headers: [String: Any]? = nil
+}
 
-//3. Response
+//3. API Response
 struct APIResponse<T> {
     let result: Result<T, Error>
 }
 
-//4. Task
-
+//4. Cancelable Request
 protocol APIRequest {
     func cancel()
 }
 
-//4. Action
-protocol APIDispatching {
+//5. Perferm API request using differnt restful methods
+protocol Networking {
     typealias Completion<T> = (APIResponse<T>) -> Void
     
     @discardableResult
-    func dispatch<T: Decodable>(
-        with request: RequestConvertible,
+    func get<T: Decodable, R: Encodable>(
+        request: RequestBuilder<R>,
+        completion: @escaping Completion<T>) -> APIRequest
+    
+    func post<T: Decodable, R: Encodable>(
+        request: RequestBuilder<R>,
+        completion: @escaping Completion<T>) -> APIRequest
+    
+    func put<T: Decodable, R: Encodable>(
+        request: RequestBuilder<R>,
         completion: @escaping Completion<T>) -> APIRequest
 }
