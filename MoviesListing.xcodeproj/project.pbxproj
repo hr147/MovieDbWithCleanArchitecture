@@ -44,6 +44,8 @@
 		BEBF824122786D28004A8392 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF824022786D28004A8392 /* Constants.swift */; };
 		BEBF824322786EEB004A8392 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF824222786EEB004A8392 /* Networking.swift */; };
 		BEBF8245227873DF004A8392 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF8244227873DF004A8392 /* NetworkManager.swift */; };
+		BEF29809227D98E800ADA994 /* DatePickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF29808227D98E800ADA994 /* DatePickerPresenter.swift */; };
+		BEF2980B227DD92400ADA994 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF2980A227DD92400ADA994 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		BEBF824022786D28004A8392 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BEBF824222786EEB004A8392 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		BEBF8244227873DF004A8392 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BEF29808227D98E800ADA994 /* DatePickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerPresenter.swift; sourceTree = "<group>"; };
+		BEF2980A227DD92400ADA994 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +317,7 @@
 				BEBF82332278585F004A8392 /* UIColor+Extension.swift */,
 				BEBF823522785C2F004A8392 /* UIFont+Extension.swift */,
 				BE213A41227B0DF0004EA56C /* UIAlertController+Extensions.swift */,
+				BEF2980A227DD92400ADA994 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				BEBF8231227855C1004A8392 /* AppNavigationController.swift */,
+				BEF29808227D98E800ADA994 /* DatePickerPresenter.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -477,6 +483,7 @@
 				BEBF821E22783617004A8392 /* MovieListViewController.swift in Sources */,
 				BEBF823822786339004A8392 /* MovieListViewModel.swift in Sources */,
 				BE213A40227B0026004EA56C /* ActivityIndicator.swift in Sources */,
+				BEF29809227D98E800ADA994 /* DatePickerPresenter.swift in Sources */,
 				BEBF822522783A44004A8392 /* UITableView+Extension.swift in Sources */,
 				BEBF823622785C2F004A8392 /* UIFont+Extension.swift in Sources */,
 				BE9F8EE9227C207C0062C9B9 /* LazyImageLoader.swift in Sources */,
@@ -487,6 +494,7 @@
 				BEBF82272278519C004A8392 /* UIStoryboard+Extension.swift in Sources */,
 				BE9F8EE4227C15110062C9B9 /* MovieViewModel.swift in Sources */,
 				BEBF823A227869B3004A8392 /* MoviesUseCase.swift in Sources */,
+				BEF2980B227DD92400ADA994 /* Date+Extension.swift in Sources */,
 				BE213A3E227B0026004EA56C /* Observable+Ext.swift in Sources */,
 				BEBF8232227855C1004A8392 /* AppNavigationController.swift in Sources */,
 			);

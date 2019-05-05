@@ -14,6 +14,13 @@ import RxSwift
 class MovieListViewController: UITableViewController {
     //UI Properties
     @IBOutlet weak var nextPageActivityIndicatorView: UIActivityIndicatorView!
+    private lazy var filterBarButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        
+//        let button = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(didTapFilter(sender:)))
+       
+        return button
+    }()
     
     //Injected Properties
     var viewModel: MovieListViewModel!
@@ -23,6 +30,7 @@ class MovieListViewController: UITableViewController {
     private let viewDidLoadSubject = PublishSubject<Void>()
     private let scrollToEndSubject = PublishSubject<Void>()
     private let disposeBag = DisposeBag()
+    private lazy var datePickerViewer = DatePickerPresenter()
     
     //MARK: - Controller Life Cycle Methods
     
@@ -34,17 +42,28 @@ class MovieListViewController: UITableViewController {
         viewDidLoadSubject.onNext(())
     }
     
+    //MARK: - Actions Methods
+    
+    func showDatePicker() {
+        datePickerViewer.present(into: view)
+    }
+    
     //MARK: - Private Methods
     
     private func setupUI() {
         title = "Movies"
+        navigationItem.rightBarButtonItem = filterBarButton
     }
+    
+    
     
     private func bindViewModel() {
         //setup input for View
         let input = MovieListViewModel.Input(
             viewDidLoad: viewDidLoadSubject.asSignal(onErrorJustReturn: ()),
-            scrollingDidEnd: scrollToEndSubject.asSignal(onErrorJustReturn: ()))
+            scrollingDidEnd: scrollToEndSubject.asSignal(onErrorJustReturn: ()),
+            dateFilterApplied: datePickerViewer.dateDidSelectSubject.asSignal(onErrorJustReturn: Date()),
+            filterDidTap: filterBarButton.rx.tap.asSignal())
         
         //transform input to output
         let output = viewModel.transform(input: input)
@@ -52,6 +71,8 @@ class MovieListViewController: UITableViewController {
         //setup Output to View
         [output.reloadTableView.emit(onNext: tableView.reloadData),
          output.fetching.drive(nextPageActivityIndicatorView.rx.isAnimating),
+         output.filterTitle.emit(to: filterBarButton.rx.title),
+         output.showDatePicker.emit(onNext: showDatePicker),
          output.error.drive(onNext: UIAlertController.showAlert)]
             .forEach({ $0.disposed(by: disposeBag) })
     }

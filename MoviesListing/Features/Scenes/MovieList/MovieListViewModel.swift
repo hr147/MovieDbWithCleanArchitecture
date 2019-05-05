@@ -14,13 +14,22 @@ final class MovieListViewModel {
     private let moviesUseCase: MoviesUseCase
     private var currentPage: Int = 1
     private var moviesDataSource: [Movie] = []
+    private var filteredMoviesDataSource: [Movie] = []
+    private var isFilterActivated = false
+    
+    private var activeDateSource: [Movie] {
+        if isFilterActivated {
+            return filteredMoviesDataSource
+        }
+        return moviesDataSource
+    }
     
     var numberOfRows: Int {
-        return moviesDataSource.count
+        return activeDateSource.count
     }
     
     subscript (movieViewModelAtIndex index: Int) -> MovieViewModel {
-        return MovieViewModel(movie: moviesDataSource[index])
+        return MovieViewModel(movie: activeDateSource[index])
     }
     
     init(moviesUseCase: MoviesUseCase) {
@@ -34,18 +43,37 @@ final class MovieListViewModel {
         moviesDataSource += movies
         currentPage += 1
     }
+    
+    private func activateFilterOnDateSource(with date: Date) {
+        filteredMoviesDataSource = moviesDataSource.filter({ $0.releaseDate == date.string() })
+        isFilterActivated = true
+    }
+    
+    private func clearFilterOnDateSource() {
+        filteredMoviesDataSource.removeAll()
+        isFilterActivated = false
+    }
 }
 
 extension MovieListViewModel {
     struct Input {
         let viewDidLoad: Signal<Void>
         let scrollingDidEnd: Signal<Void>
+        let dateFilterApplied: Signal<Date>
+        let filterDidTap: Signal<Void>
     }
     
     struct Output {
         let reloadTableView: Signal<Void>
         let error: Driver<Error>
         let fetching: Driver<Bool>
+        let filterTitle: Signal<String>
+        let showDatePicker: Signal<Void>
+    }
+    
+    enum Action {
+        case reload
+        case showPicker
     }
     
     func transform(input: Input) -> Output {
@@ -55,10 +83,11 @@ extension MovieListViewModel {
         let nextPageLoad = input.scrollingDidEnd
             .asObservable()
             .withLatestFrom(activityIndicator)
-            .filter({ $0 == false })
+            .filter({ $0 == false && self.isFilterActivated == false })
             .mapToVoid()
         
-        let reloadView =  Observable.merge(input.viewDidLoad.asObservable(),nextPageLoad)
+        
+        let serverResult =  Observable.merge(input.viewDidLoad.asObservable(),nextPageLoad)
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .map({ self.currentPage })
             .flatMap({
@@ -71,12 +100,41 @@ extension MovieListViewModel {
             .debug()
             .asSignal(onErrorJustReturn: ())
         
+        
+        let filterResult = input.dateFilterApplied
+            .asObservable()
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .do(onNext: activateFilterOnDateSource)
+            .mapToVoid()
+            .asSignal(onErrorJustReturn: ())
+        
+        let filterActionTriggered = input.filterDidTap
+            .flatMap({ _ -> Signal<Action> in
+                return self.isFilterActivated ? .just(.reload) : .just(.showPicker)
+            })
+        
+        let reloadOnClearFilter = filterActionTriggered
+            .filter({ $0 == .reload })
+            .mapToVoid()
+            .do(onNext: clearFilterOnDateSource)
+        
+        
+        let showDatePicker = filterActionTriggered
+            .filter({ $0 == .showPicker })
+            .mapToVoid()
+        
+        let filterActionTitle = Signal.merge(input.viewDidLoad, filterResult, reloadOnClearFilter)
+            .map({ self.isFilterActivated ? "Reset" : "Filter" })
+        
+        let relaodTableView = Signal.merge(serverResult, filterResult, reloadOnClearFilter)
         let errorDriver = errorTracker.asDriver()
         let fetchingDriver = activityIndicator.asDriver()
         
         return Output(
-            reloadTableView: reloadView,
+            reloadTableView: relaodTableView,
             error: errorDriver,
-            fetching: fetchingDriver)
+            fetching: fetchingDriver,
+            filterTitle: filterActionTitle,
+            showDatePicker: showDatePicker)
     }
 }
