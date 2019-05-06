@@ -23,11 +23,11 @@ final class DefaultMoviesUseCase {
 extension DefaultMoviesUseCase: MoviesUseCase {
     
     func getMovies(for page: Int) -> Single<MovieResponseModel> {
-        print("Next Request Hit==================>>>>>>>>>>>>>for page \(page)")
         return .create(subscribe: { single -> Disposable in
+            // request building
             let parameters = MovieRequestModel(page: page, api_key: Constants.Keys.api)
             let request = RequestBuilder(path: .init(endPoint: .movie), parameters: parameters)
-            
+            // perform action to get 
             let task = self.networking.get(request: request, completion: { (response: APIResponse<MovieResponseModel>) in
                 switch response.result {
                 case .failure(let error): single(.error(error))

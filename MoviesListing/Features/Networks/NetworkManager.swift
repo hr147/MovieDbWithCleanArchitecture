@@ -9,9 +9,6 @@
 import Foundation
 import Alamofire
 
-
-//3. Request Cancelable
-
 struct DefaultAPIRequest: APIRequest {
     let request: DataRequest
     func cancel() {
@@ -19,61 +16,55 @@ struct DefaultAPIRequest: APIRequest {
     }
 }
 
-struct RequestConverter<T: Encodable> {
-    let method: HTTPMethod
-    let path: String
-    var parameters: T?
-    let encoder: Alamofire.ParameterEncoder
-}
-
-extension RequestConverter: URLRequestConvertible {
-    /// Required method to conform to the `URLRequestConvertible` protocol.
-    ///
-    /// - Returns: URLRequest object
-    /// - Throws: An `Error` if the underlying `URLRequest` is `nil`.
-    func asURLRequest() throws -> URLRequest {
-        let url = try path.asURL()
-        let request = try URLRequest(url: url, method: method)
-        
-        return try parameters.map { try encoder.encode($0, into: request) } ?? request
-    }
-}
-
-
 class NetworkManager: Networking {
     
     func get<T: Decodable, R: Encodable>(request: RequestBuilder<R>, completion: @escaping Completion<T>) -> APIRequest {
         
-        let convertedRequest = RequestConverter(method: .get,
-                                                path: request.path.url,
-                                                parameters: request.parameters,
-                                                encoder: URLEncodedFormParameterEncoder.default)
-        
-        return dispatch(with: convertedRequest, completion: completion)
+        return dispatch(url: request.path.url,
+                        method: .get,
+                        parameters: request.parameters,
+                        encoder: URLEncodedFormParameterEncoder.default,
+                        headers: request.headers,
+                        completion: completion)
         
     }
     
     func post<T: Decodable, R: Encodable>(request: RequestBuilder<R>, completion: @escaping Completion<T>) -> APIRequest {
-        let convertedRequest = RequestConverter(method: .post,
-                                                path: request.path.url,
-                                                parameters: request.parameters,
-                                                encoder: URLEncodedFormParameterEncoder.default)
         
-        return dispatch(with: convertedRequest, completion: completion)
+        return dispatch(url: request.path.url,
+                        method: .post,
+                        parameters: request.parameters,
+                        encoder: URLEncodedFormParameterEncoder.default,
+                        headers: request.headers,
+                        completion: completion)
     }
     
     func put<T: Decodable, R: Encodable>(request: RequestBuilder<R>, completion: @escaping Completion<T>) -> APIRequest {
-        let convertedRequest = RequestConverter(method: .put,
-                                                path: request.path.url,
-                                                parameters: request.path.url,
-                                                encoder: URLEncodedFormParameterEncoder.default)
         
-        return dispatch(with: convertedRequest, completion: completion)
+        return dispatch(url: request.path.url,
+                        method: .put,
+                        parameters: request.parameters,
+                        encoder: URLEncodedFormParameterEncoder.default,
+                        headers: request.headers,
+                        completion: completion)
     }
     
     
-    func dispatch<T: Decodable>(with request: URLRequestConvertible, completion: @escaping Completion<T>) -> APIRequest {
-        let dataRequest = AF.request(request)
+    func dispatch<T: Decodable, R: Encodable>(
+        url: URLConvertible,
+        method: HTTPMethod,
+        parameters: R?,
+        encoder: ParameterEncoder,
+        headers: [String: String]?,
+        completion: @escaping Completion<T>) -> APIRequest {
+        
+        let headers: HTTPHeaders? = headers.map({ HTTPHeaders($0) })
+        
+        let dataRequest = AF.request(url,
+                                     method: method,
+                                     parameters: parameters,
+                                     encoder: encoder,
+                                     headers: headers)
             .validate()
             .responseDecodable { (response: DataResponse<T>) in
                 completion(APIResponse(result: response.result))

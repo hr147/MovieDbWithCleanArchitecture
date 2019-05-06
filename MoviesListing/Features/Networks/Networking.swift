@@ -41,7 +41,7 @@ struct APIPathBuilder {
 struct RequestBuilder<Parameter: Encodable> {
     let path: APIPathBuilder
     let parameters: Parameter
-    let headers: [String: Any]? = nil
+    let headers: [String: String]? = nil
 }
 
 //3. API Response
