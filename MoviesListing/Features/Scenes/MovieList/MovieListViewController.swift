@@ -16,9 +16,6 @@ class MovieListViewController: UITableViewController {
     @IBOutlet weak var nextPageActivityIndicatorView: UIActivityIndicatorView!
     private lazy var filterBarButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        
-//        let button = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(didTapFilter(sender:)))
-       
         return button
     }()
     
