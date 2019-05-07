@@ -12,8 +12,10 @@ import RxSwift
 
 
 class MovieListViewController: UITableViewController {
+    
     //UI Properties
     @IBOutlet weak var nextPageActivityIndicatorView: UIActivityIndicatorView!
+    
     private lazy var filterBarButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         return button
@@ -24,9 +26,9 @@ class MovieListViewController: UITableViewController {
     var imageLazyLoader: LazyImageLoader!
     
     //Private Properties
+    private let disposeBag = DisposeBag()
     private let viewDidLoadSubject = PublishSubject<Void>()
     private let scrollToEndSubject = PublishSubject<Void>()
-    private let disposeBag = DisposeBag()
     private lazy var datePickerViewer = DatePickerPresenter()
     
     //MARK: - Controller Life Cycle Methods
@@ -35,6 +37,7 @@ class MovieListViewController: UITableViewController {
         super.viewDidLoad()
         setupUI()
         bindViewModel()
+        
         //emit signal on viewDidLoad triggered
         viewDidLoadSubject.onNext(())
     }
@@ -52,15 +55,14 @@ class MovieListViewController: UITableViewController {
         navigationItem.rightBarButtonItem = filterBarButton
     }
     
-    
-    
     private func bindViewModel() {
         //setup input for View
         let input = MovieListViewModel.Input(
             viewDidLoad: viewDidLoadSubject.asSignal(onErrorJustReturn: ()),
             scrollingDidEnd: scrollToEndSubject.asSignal(onErrorJustReturn: ()),
             dateFilterApplied: datePickerViewer.dateDidSelectSubject.asSignal(onErrorJustReturn: Date()),
-            filterDidTap: filterBarButton.rx.tap.asSignal())
+            filterDidTap: filterBarButton.rx.tap.asSignal(),
+            movieDidSelectAtIndex: tableView.rx.itemSelected.map({ $0.row }).asDriverOnErrorJustComplete())
         
         //transform input to output
         let output = viewModel.transform(input: input)
@@ -70,7 +72,9 @@ class MovieListViewController: UITableViewController {
          output.fetching.drive(nextPageActivityIndicatorView.rx.isAnimating),
          output.filterTitle.emit(to: filterBarButton.rx.title),
          output.showDatePicker.emit(onNext: showDatePicker),
-         output.error.drive(onNext: UIAlertController.showAlert)]
+         output.error.drive(onNext: UIAlertController.showAlert),
+         output.movieDidSelect.drive()
+            ]
             .forEach({ $0.disposed(by: disposeBag) })
     }
     

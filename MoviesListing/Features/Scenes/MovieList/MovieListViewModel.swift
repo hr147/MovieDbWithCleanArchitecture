@@ -12,6 +12,7 @@ import RxCocoa
 
 final class MovieListViewModel {
     private let moviesUseCase: MoviesUseCase
+    private let navigator: MovieListNavigator
     private var currentPage: Int = 1
     private var moviesDataSource: [Movie] = []
     private var filteredMoviesDataSource: [Movie] = []
@@ -32,8 +33,9 @@ final class MovieListViewModel {
         return MovieViewModel(movie: activeDateSource[index])
     }
     
-    init(moviesUseCase: MoviesUseCase) {
+    init(moviesUseCase: MoviesUseCase, navigator: MovieListNavigator) {
         self.moviesUseCase = moviesUseCase
+        self.navigator = navigator
     }
     
     private func updateMoviesDataSource(with responseModel: MovieResponseModel) {
@@ -61,6 +63,7 @@ extension MovieListViewModel {
         let scrollingDidEnd: Signal<Void>
         let dateFilterApplied: Signal<Date>
         let filterDidTap: Signal<Void>
+        let movieDidSelectAtIndex: Driver<Int>
     }
     
     struct Output {
@@ -69,6 +72,7 @@ extension MovieListViewModel {
         let fetching: Driver<Bool>
         let filterTitle: Signal<String>
         let showDatePicker: Signal<Void>
+        let movieDidSelect: Driver<Void>
     }
     
     enum Action {
@@ -126,6 +130,11 @@ extension MovieListViewModel {
         let filterActionTitle = Signal.merge(input.viewDidLoad, filterResult, reloadOnClearFilter)
             .map({ self.isFilterActivated ? "Reset" : "Filter" })
         
+        let movieDidSelect = input.movieDidSelectAtIndex
+                            .map({ self.activeDateSource[$0] })
+                            .do(onNext: navigator.navigateToDatail)
+                            .mapToVoid()
+        
         let relaodTableView = Signal.merge(serverResult, filterResult, reloadOnClearFilter)
         let errorDriver = errorTracker.asDriver()
         let fetchingDriver = activityIndicator.asDriver()
@@ -135,6 +144,7 @@ extension MovieListViewModel {
             error: errorDriver,
             fetching: fetchingDriver,
             filterTitle: filterActionTitle,
-            showDatePicker: showDatePicker)
+            showDatePicker: showDatePicker,
+            movieDidSelect: movieDidSelect)
     }
 }

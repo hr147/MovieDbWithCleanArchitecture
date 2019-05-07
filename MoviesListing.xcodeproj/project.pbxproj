@@ -33,7 +33,6 @@
 		BEBF8229227852D9004A8392 /* MovieList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEBF8228227852D9004A8392 /* MovieList.storyboard */; };
 		BEBF822B227852EA004A8392 /* MovieDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEBF822A227852EA004A8392 /* MovieDetail.storyboard */; };
 		BEBF822D22785348004A8392 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF822C22785348004A8392 /* MovieTableViewCell.swift */; };
-		BEBF822F22785461004A8392 /* MovieListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF822E22785461004A8392 /* MovieListBuilder.swift */; };
 		BEBF8232227855C1004A8392 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF8231227855C1004A8392 /* AppNavigationController.swift */; };
 		BEBF82342278585F004A8392 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF82332278585F004A8392 /* UIColor+Extension.swift */; };
 		BEBF823622785C2F004A8392 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF823522785C2F004A8392 /* UIFont+Extension.swift */; };
@@ -44,6 +43,8 @@
 		BEBF824122786D28004A8392 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF824022786D28004A8392 /* Constants.swift */; };
 		BEBF824322786EEB004A8392 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF824222786EEB004A8392 /* Networking.swift */; };
 		BEBF8245227873DF004A8392 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF8244227873DF004A8392 /* NetworkManager.swift */; };
+		BEE96D4C2281915300C78047 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE96D4B2281915300C78047 /* MovieDetailViewModel.swift */; };
+		BEE96D4F22819FBF00C78047 /* MovieListNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE96D4E22819FBF00C78047 /* MovieListNavigator.swift */; };
 		BEF29809227D98E800ADA994 /* DatePickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF29808227D98E800ADA994 /* DatePickerPresenter.swift */; };
 		BEF2980B227DD92400ADA994 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF2980A227DD92400ADA994 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -90,7 +91,6 @@
 		BEBF8228227852D9004A8392 /* MovieList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieList.storyboard; sourceTree = "<group>"; };
 		BEBF822A227852EA004A8392 /* MovieDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieDetail.storyboard; sourceTree = "<group>"; };
 		BEBF822C22785348004A8392 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
-		BEBF822E22785461004A8392 /* MovieListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListBuilder.swift; sourceTree = "<group>"; };
 		BEBF8231227855C1004A8392 /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 		BEBF82332278585F004A8392 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		BEBF823522785C2F004A8392 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
@@ -101,6 +101,8 @@
 		BEBF824022786D28004A8392 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BEBF824222786EEB004A8392 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		BEBF8244227873DF004A8392 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BEE96D4B2281915300C78047 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
+		BEE96D4E22819FBF00C78047 /* MovieListNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListNavigator.swift; sourceTree = "<group>"; };
 		BEF29808227D98E800ADA994 /* DatePickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerPresenter.swift; sourceTree = "<group>"; };
 		BEF2980A227DD92400ADA994 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -290,11 +292,11 @@
 			isa = PBXGroup;
 			children = (
 				BEBF8228227852D9004A8392 /* MovieList.storyboard */,
-				BEBF822E22785461004A8392 /* MovieListBuilder.swift */,
 				BEBF821D22783617004A8392 /* MovieListViewController.swift */,
 				BEBF823722786339004A8392 /* MovieListViewModel.swift */,
 				BEBF822C22785348004A8392 /* MovieTableViewCell.swift */,
 				BE9F8EE3227C15110062C9B9 /* MovieViewModel.swift */,
+				BEE96D4E22819FBF00C78047 /* MovieListNavigator.swift */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
@@ -304,6 +306,7 @@
 			children = (
 				BEBF821F2278363B004A8392 /* MovieDetailViewController.swift */,
 				BEBF822A227852EA004A8392 /* MovieDetail.storyboard */,
+				BEE96D4B2281915300C78047 /* MovieDetailViewModel.swift */,
 			);
 			path = MovieDetail;
 			sourceTree = "<group>";
@@ -472,7 +475,6 @@
 				BEBF8245227873DF004A8392 /* NetworkManager.swift in Sources */,
 				BEBF8223227838E4004A8392 /* UIKit+ReuseIdentifier.swift in Sources */,
 				BEBF824122786D28004A8392 /* Constants.swift in Sources */,
-				BEBF822F22785461004A8392 /* MovieListBuilder.swift in Sources */,
 				BEBF824322786EEB004A8392 /* Networking.swift in Sources */,
 				BE213A3F227B0026004EA56C /* ErrorTracker.swift in Sources */,
 				BEBF82202278363B004A8392 /* MovieDetailViewController.swift in Sources */,
@@ -489,9 +491,11 @@
 				BE9F8EE9227C207C0062C9B9 /* LazyImageLoader.swift in Sources */,
 				BE2347162275C34700D8E5A0 /* AppDelegate.swift in Sources */,
 				BE213A39227AE0F4004EA56C /* Movie.swift in Sources */,
+				BEE96D4F22819FBF00C78047 /* MovieListNavigator.swift in Sources */,
 				BEBF821422782F9C004A8392 /* AppNavigator.swift in Sources */,
 				BEBF822D22785348004A8392 /* MovieTableViewCell.swift in Sources */,
 				BEBF82272278519C004A8392 /* UIStoryboard+Extension.swift in Sources */,
+				BEE96D4C2281915300C78047 /* MovieDetailViewModel.swift in Sources */,
 				BE9F8EE4227C15110062C9B9 /* MovieViewModel.swift in Sources */,
 				BEBF823A227869B3004A8392 /* MoviesUseCase.swift in Sources */,
 				BEF2980B227DD92400ADA994 /* Date+Extension.swift in Sources */,

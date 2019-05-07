@@ -9,9 +9,21 @@
 import UIKit
 
 class AppNavigator {
-
+    
     func installRoot(into window: UIWindow?) {
-        let movieListController = MovieListBuilder.build()
-        window?.rootViewController = AppNavigationController(rootViewController: movieListController)
+        // controller create & setup
+        let storyboard = UIStoryboard(storyboard: .movieList)
+        let movieListController: MovieListViewController = storyboard.initialViewController()
+        let rootController = AppNavigationController(rootViewController: movieListController)
+        
+        //View Model create & setup
+        movieListController.viewModel = MovieListViewModel(
+            moviesUseCase: DefaultMoviesUseCase(),
+            navigator: DefaultMovieListNavigator(navigationController: rootController))
+        
+        //lazy loader create & setup
+        movieListController.imageLazyLoader = KingfisherLazyImageLoader()
+        
+        window?.rootViewController = rootController
     }
 }

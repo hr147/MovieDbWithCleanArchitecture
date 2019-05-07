@@ -7,24 +7,63 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class MovieDetailViewController: UIViewController {
-
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var releaseDateLabel: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var overviewLabel: UILabel!
+    
+    //Injected Properties
+    var viewModel: MovieDetailViewModel!
+    var imageLazyLoader: LazyImageLoader!
+    
+    //Private Properties
+    private let disposeBag = DisposeBag()
+    
+    //MARK: - Controller Life Cycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        bindViewModel()
     }
     
+    //MARK: - Private Methods
+    
+    private func bindViewModel() {
+        //setup input for View
+        let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
+            .mapToVoid()
+            .asSignal(onErrorJustReturn: ())
+        
+        let input = MovieDetailViewModel.Input(viewWillAppearTriggered: viewWillAppear)
 
-    /*
-    // MARK: - Navigation
+        //transform input to output
+        let output = viewModel.transform(input: input)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        //setup Output to View
+        [output.screenTitle.emit(to: rx.title),
+         output.backgroundURL.emit(onNext: configureBackgroundImageView),
+         output.posterURL.emit(onNext: configurePosterImageView),
+         output.movieTitle.emit(to: titleLabel.rx.text),
+         output.rating.emit(to: ratingLabel.rx.text),
+         output.releaseDate.emit(to: releaseDateLabel.rx.text),
+         output.language.emit(to: languageLabel.rx.text),
+         output.overview.emit(to: overviewLabel.rx.text)
+            ]
+            .forEach({ $0.disposed(by: disposeBag) })
     }
-    */
-
+    
+    func configureBackgroundImageView(with url: String?) {
+        imageLazyLoader.loadImage(with: backgroundImageView, withURL: url)
+    }
+    
+    func configurePosterImageView(with url: String?) {
+        imageLazyLoader.loadImage(with: posterImageView, withURL: url)
+    }
 }
