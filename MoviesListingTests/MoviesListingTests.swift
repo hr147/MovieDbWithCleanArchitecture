@@ -73,7 +73,7 @@ class MockMovieListNavigator: MovieListNavigator {
     }
 }
 
-class MoviesListingTests: BaseXCTest {
+class MoviesListingTests: XCTestCase {
     
     var mockNavigator: MockMovieListNavigator!
     var mockMovieUseCase: MockMovieUseCase!
