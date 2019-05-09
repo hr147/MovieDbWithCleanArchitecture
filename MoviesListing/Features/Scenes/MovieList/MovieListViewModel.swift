@@ -40,8 +40,7 @@ final class MovieListViewModel {
     
     private func updateMoviesDataSource(with responseModel: MovieResponseModel) {
         guard let movies = responseModel.movies, !movies.isEmpty else { return }
-        
-        print("========Page \(currentPage) is Loaded======")
+    
         moviesDataSource += movies
         currentPage += 1
     }
@@ -92,7 +91,6 @@ extension MovieListViewModel {
         
         
         let serverResult =  Observable.merge(input.viewDidLoad.asObservable(),nextPageLoad)
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .map({ self.currentPage })
             .flatMap({
                 self.moviesUseCase.getMovies(for: $0)
@@ -107,7 +105,6 @@ extension MovieListViewModel {
         
         let filterResult = input.dateFilterApplied
             .asObservable()
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .do(onNext: activateFilterOnDateSource)
             .mapToVoid()
             .asSignal(onErrorJustReturn: ())

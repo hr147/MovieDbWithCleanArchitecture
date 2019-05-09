@@ -22,6 +22,11 @@
 		BE406C822275CDAB00A81504 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE406C7E2275CDAB00A81504 /* RxCocoa.framework */; };
 		BE406C832275CDAB00A81504 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE406C7F2275CDAB00A81504 /* SnapKit.framework */; };
 		BE406C842275CDAB00A81504 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE406C802275CDAB00A81504 /* Alamofire.framework */; };
+		BE6F415E2282FBAC0055F4F2 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F415C2282FA050055F4F2 /* RxAtomic.framework */; };
+		BE6F415F2282FBAC0055F4F2 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F41572282F9400055F4F2 /* RxBlocking.framework */; };
+		BE6F41602282FBAC0055F4F2 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F41562282F93F0055F4F2 /* RxTest.framework */; };
+		BE6F416222845B0C0055F4F2 /* MovieDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F416122845B0C0055F4F2 /* MovieDetailsTests.swift */; };
+		BE6F416422845B3E0055F4F2 /* BaseXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F416322845B3E0055F4F2 /* BaseXCTest.swift */; };
 		BE9F8EE4227C15110062C9B9 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9F8EE3227C15110062C9B9 /* MovieViewModel.swift */; };
 		BE9F8EE9227C207C0062C9B9 /* LazyImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9F8EE8227C207C0062C9B9 /* LazyImageLoader.swift */; };
 		BEBF821422782F9C004A8392 /* AppNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF821322782F9C004A8392 /* AppNavigator.swift */; };
@@ -79,6 +84,11 @@
 		BE406C7E2275CDAB00A81504 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		BE406C7F2275CDAB00A81504 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		BE406C802275CDAB00A81504 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		BE6F41562282F93F0055F4F2 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		BE6F41572282F9400055F4F2 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		BE6F415C2282FA050055F4F2 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
+		BE6F416122845B0C0055F4F2 /* MovieDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsTests.swift; sourceTree = "<group>"; };
+		BE6F416322845B3E0055F4F2 /* BaseXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseXCTest.swift; sourceTree = "<group>"; };
 		BE9F8EE3227C15110062C9B9 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		BE9F8EE5227C1D970062C9B9 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		BE9F8EE8227C207C0062C9B9 /* LazyImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyImageLoader.swift; sourceTree = "<group>"; };
@@ -125,6 +135,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE6F415E2282FBAC0055F4F2 /* RxAtomic.framework in Frameworks */,
+				BE6F415F2282FBAC0055F4F2 /* RxBlocking.framework in Frameworks */,
+				BE6F41602282FBAC0055F4F2 /* RxTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +190,8 @@
 			children = (
 				BE23472A2275C34900D8E5A0 /* MoviesListingTests.swift */,
 				BE23472C2275C34900D8E5A0 /* Info.plist */,
+				BE6F416122845B0C0055F4F2 /* MovieDetailsTests.swift */,
+				BE6F416322845B3E0055F4F2 /* BaseXCTest.swift */,
 			);
 			path = MoviesListingTests;
 			sourceTree = "<group>";
@@ -192,6 +207,9 @@
 		BE406C7C2275CCDA00A81504 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE6F415C2282FA050055F4F2 /* RxAtomic.framework */,
+				BE6F41572282F9400055F4F2 /* RxBlocking.framework */,
+				BE6F41562282F93F0055F4F2 /* RxTest.framework */,
 				BE124A11227C260E00BDEC8E /* RxRelay.framework */,
 				BE9F8EE5227C1D970062C9B9 /* Kingfisher.framework */,
 				BE406C802275CDAB00A81504 /* Alamofire.framework */,
@@ -509,6 +527,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE23472B2275C34900D8E5A0 /* MoviesListingTests.swift in Sources */,
+				BE6F416222845B0C0055F4F2 /* MovieDetailsTests.swift in Sources */,
+				BE6F416422845B3E0055F4F2 /* BaseXCTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,11 +718,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MoviesListingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = haroon.rasheed.me.MoviesListingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -718,11 +743,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MoviesListingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = haroon.rasheed.me.MoviesListingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
