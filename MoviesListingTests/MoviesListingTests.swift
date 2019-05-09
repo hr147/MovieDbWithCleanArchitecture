@@ -9,8 +9,6 @@
 import XCTest
 import RxSwift
 import RxCocoa
-import RxBlocking
-import RxTest
 
 @testable import MoviesListing
 

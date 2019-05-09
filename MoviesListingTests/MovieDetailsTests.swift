@@ -6,9 +6,11 @@
 //  Copyright © 2019 Haroon Ur Rasheed. All rights reserved.
 //
 
-import UIKit
-import RxCocoa
+import XCTest
 import RxSwift
+import RxCocoa
+
+@testable import MoviesListing
 
 class MovieDetailsTests: XCTest {
 
