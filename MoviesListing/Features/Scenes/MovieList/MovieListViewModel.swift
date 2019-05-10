@@ -17,7 +17,7 @@ final class MovieListViewModel {
     private var moviesDataSource: [Movie] = []
     private var filteredMoviesDataSource: [Movie] = []
     private var isFilterActivated = false
-    private var canLoadNextPage = true
+    private var canLoadNextPage = false
     
     private var activeDateSource: [Movie] {
         if isFilterActivated {
@@ -40,8 +40,8 @@ final class MovieListViewModel {
     }
     
     private func updateMoviesDataSource(with responseModel: MovieResponseModel) {
+        canLoadNextPage = currentPage <= responseModel.totalPages ?? 0
         guard let movies = responseModel.movies, !movies.isEmpty else {
-            canLoadNextPage = currentPage <= responseModel.totalPages ?? 0
             return
         }
     
