@@ -17,6 +17,7 @@ final class MovieListViewModel {
     private var moviesDataSource: [Movie] = []
     private var filteredMoviesDataSource: [Movie] = []
     private var isFilterActivated = false
+    private var canLoadNextPage = true
     
     private var activeDateSource: [Movie] {
         if isFilterActivated {
@@ -39,7 +40,10 @@ final class MovieListViewModel {
     }
     
     private func updateMoviesDataSource(with responseModel: MovieResponseModel) {
-        guard let movies = responseModel.movies, !movies.isEmpty else { return }
+        guard let movies = responseModel.movies, !movies.isEmpty else {
+            canLoadNextPage = currentPage <= responseModel.totalPages ?? 0
+            return
+        }
     
         moviesDataSource += movies
         currentPage += 1
@@ -86,7 +90,7 @@ extension MovieListViewModel {
         let nextPageLoad = input.scrollingDidEnd
             .asObservable()
             .withLatestFrom(activityIndicator)
-            .filter({ $0 == false && self.isFilterActivated == false })
+            .filter({ $0 == false && self.isFilterActivated == false && self.canLoadNextPage })
             .mapToVoid()
         
         

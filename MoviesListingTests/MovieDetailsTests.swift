@@ -55,7 +55,7 @@ import RxCocoa
  
  */
 class MovieDetailsTests: XCTestCase {
-
+    
     func testMovieDetailInformation() {
         
         //GIVEN
@@ -68,36 +68,38 @@ class MovieDetailsTests: XCTestCase {
         let language = BehaviorRelay<String>(value: "")
         let overview = BehaviorRelay<String>(value: "")
         
-        
-        let movie = Movie(originalTitle: "Hitman",
-                          backdropPath: "/hitmanbackimage.png",
-                          posterPath: "/hitmanposterimage.png",
-                          overview: "hitman is good movie",
-                          releaseDate: "24-3-1988")
-        let viewModel = MovieDetailViewModel(movie: movie)
-        
-        let viewwillappeared = PublishSubject<Void>()
-        
-        let input = MovieDetailViewModel.Input(viewWillAppearTriggered: viewwillappeared.asSignal(onErrorJustReturn: ()))
-        
-        let output = viewModel.transform(input: input)
-        
-        _ = output.screenTitle.emit(to: screenTitle)
-        _ = output.backgroundURL.emit(to: backgroundURL)
-        _ = output.posterURL.emit(to: posterURL)
-        _ = output.movieTitle.emit(to: movieTitle)
-        _ = output.rating.emit(to: rating)
-        _ = output.releaseDate.emit(to: releaseDate)
-        _ = output.language.emit(to: language)
-        _ = output.overview.emit(to: overview)
-       
-        //WHEN
-        viewwillappeared.onNext(())
+        autoreleasepool {
+            let movie = Movie(originalTitle: "Hitman",
+                              backdropPath: "/hitmanbackimage.png",
+                              posterPath: "/hitmanposterimage.png",
+                              overview: "hitman is good movie",
+                              releaseDate: "24-3-1988")
+            let viewModel = MovieDetailViewModel(movie: movie)
+            
+            let viewwillappeared = PublishSubject<Void>()
+            
+            let input = MovieDetailViewModel.Input(viewWillAppearTriggered: viewwillappeared.asSignal(onErrorJustReturn: ()))
+            
+            let output = viewModel.transform(input: input)
+            
+            _ = output.screenTitle.emit(to: screenTitle)
+            _ = output.backgroundURL.emit(to: backgroundURL)
+            _ = output.posterURL.emit(to: posterURL)
+            _ = output.movieTitle.emit(to: movieTitle)
+            _ = output.rating.emit(to: rating)
+            _ = output.releaseDate.emit(to: releaseDate)
+            _ = output.language.emit(to: language)
+            _ = output.overview.emit(to: overview)
+            
+            //WHEN
+            viewwillappeared.onNext(())
+        }
         
         //THEN
         XCTAssertTrue(screenTitle.value == "Details")
         XCTAssertTrue(backgroundURL.value == "http://image.tmdb.org/t/p/w500/hitmanbackimage.png")
         XCTAssertTrue(posterURL.value == "http://image.tmdb.org/t/p/w92/hitmanposterimage.png")
-        
+        XCTAssertTrue(rating.value == "0.0 / 10")
+        XCTAssertTrue(releaseDate.value == "24-3-1988")
     }
 }
