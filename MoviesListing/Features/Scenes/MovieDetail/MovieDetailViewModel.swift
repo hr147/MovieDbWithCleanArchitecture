@@ -15,6 +15,10 @@ class MovieDetailViewModel {
     init(movie: Movie) {
         self.movie = movie
     }
+    
+    deinit {
+        print(String(describing: self) + "deinit \n")
+    }
 }
 
 extension MovieDetailViewModel {

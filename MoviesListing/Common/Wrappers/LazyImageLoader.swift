@@ -9,19 +9,10 @@
 import UIKit
 import Kingfisher
 
-
-protocol LazyImageLoader {
-    func loadImage(with imageView: UIImageView?, withURL url: String?)
-}
-
-struct KingfisherLazyImageLoader: LazyImageLoader {
-    func loadImage(with imageView: UIImageView?, withURL url: String?) {
-        let placeholderImage = #imageLiteral(resourceName: "placeholder")
-        imageView?.image = placeholderImage
+extension UIImageView {
+    func setLazyImage(with url: String?, withPlaceholder placeholder: UIImage = #imageLiteral(resourceName: "placeholder")) {
+        guard let url = url, let resource = URL(string: url) else { return }
         
-        guard let stringURL = url else { return }
-        
-        let resource = URL(string: stringURL)
-        imageView?.kf.setImage(with: resource, placeholder: placeholderImage, options: [.transition(.fade(0.25))])
+        kf.setImage(with: resource, placeholder: placeholder, options: [.transition(.fade(0.25))])
     }
 }

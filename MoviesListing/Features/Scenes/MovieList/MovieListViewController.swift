@@ -23,7 +23,6 @@ class MovieListViewController: UITableViewController {
     
     //Injected Properties
     var viewModel: MovieListViewModel!
-    var imageLazyLoader: LazyImageLoader!
     
     //Private Properties
     private let disposeBag = DisposeBag()
@@ -95,7 +94,6 @@ class MovieListViewController: UITableViewController {
         let cell: MovieTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         //Get view model for cell
         let cellViewModel = viewModel[movieViewModelAtIndex: indexPath.row]
-        imageLazyLoader.loadImage(with: cell.posterImageView, withURL: cellViewModel.imageURL)
         cell.configure(with: cellViewModel)
         
         return cell

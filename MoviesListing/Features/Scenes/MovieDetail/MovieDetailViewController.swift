@@ -21,7 +21,6 @@ class MovieDetailViewController: UIViewController {
     
     //Injected Properties
     var viewModel: MovieDetailViewModel!
-    var imageLazyLoader: LazyImageLoader!
     
     //Private Properties
     private let disposeBag = DisposeBag()
@@ -31,6 +30,10 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+    }
+    
+    deinit {
+        print(String(describing: self) + "deinit \n")
     }
     
     //MARK: - Private Methods
@@ -45,11 +48,15 @@ class MovieDetailViewController: UIViewController {
 
         //transform input to output
         let output = viewModel.transform(input: input)
-
+        
         //setup Output to View
         [output.screenTitle.emit(to: rx.title),
-         output.backgroundURL.emit(onNext: configureBackgroundImageView),
-         output.posterURL.emit(onNext: configurePosterImageView),
+         output.backgroundURL.emit(onNext: { [weak self] in
+            self?.backgroundImageView.setLazyImage(with: $0)
+         }),
+         output.posterURL.emit(onNext: { [weak self] in
+            self?.posterImageView.setLazyImage(with: $0)
+         }),
          output.movieTitle.emit(to: titleLabel.rx.text),
          output.rating.emit(to: ratingLabel.rx.text),
          output.releaseDate.emit(to: releaseDateLabel.rx.text),
@@ -57,13 +64,5 @@ class MovieDetailViewController: UIViewController {
          output.overview.emit(to: overviewLabel.rx.text)
             ]
             .forEach({ $0.disposed(by: disposeBag) })
-    }
-    
-    func configureBackgroundImageView(with url: String?) {
-        imageLazyLoader.loadImage(with: backgroundImageView, withURL: url)
-    }
-    
-    func configurePosterImageView(with url: String?) {
-        imageLazyLoader.loadImage(with: posterImageView, withURL: url)
     }
 }

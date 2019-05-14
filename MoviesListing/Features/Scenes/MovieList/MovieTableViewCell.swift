@@ -33,5 +33,6 @@ extension MovieTableViewCell {
         releaseDateLabel.text = viewModel.releaseDate
         overviewLabel.text = viewModel.overview
         ratingLabel.text = viewModel.rating
+        posterImageView.setLazyImage(with: viewModel.imageURL)
     }
 }

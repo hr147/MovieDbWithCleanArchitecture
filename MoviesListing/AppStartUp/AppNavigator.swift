@@ -21,9 +21,6 @@ class AppNavigator {
             moviesUseCase: DefaultMoviesUseCase(),
             navigator: DefaultMovieListNavigator(navigationController: rootController))
         
-        //lazy loader create & setup
-        movieListController.imageLazyLoader = KingfisherLazyImageLoader()
-        
         window?.rootViewController = rootController
     }
 }

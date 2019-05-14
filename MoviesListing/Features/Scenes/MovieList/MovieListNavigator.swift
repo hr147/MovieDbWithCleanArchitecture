@@ -28,8 +28,6 @@ class DefaultMovieListNavigator: MovieListNavigator {
         //View Model create & setup
         movieDetailController.viewModel = MovieDetailViewModel(movie: movie)
         
-        //lazy loader create & setup
-        movieDetailController.imageLazyLoader = KingfisherLazyImageLoader()
         
         navigationController?.pushViewController(movieDetailController, animated: true)
     }
