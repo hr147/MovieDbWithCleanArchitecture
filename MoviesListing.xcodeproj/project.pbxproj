@@ -66,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		BE124A11227C260E00BDEC8E /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		BE1AE23622955F8300BA7650 /* gomovies-app-davitpetriashvili.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gomovies-app-davitpetriashvili.sketch"; sourceTree = "<group>"; };
 		BE213A38227AE0F4004EA56C /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		BE213A3B227B0026004EA56C /* Observable+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
 		BE213A3C227B0026004EA56C /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
@@ -241,6 +242,7 @@
 		BEBF821122782ED9004A8392 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BE1AE23622955F8300BA7650 /* gomovies-app-davitpetriashvili.sketch */,
 				BE23471E2275C34900D8E5A0 /* LaunchScreen.storyboard */,
 				BE23471C2275C34900D8E5A0 /* Assets.xcassets */,
 			);
