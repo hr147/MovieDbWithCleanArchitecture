@@ -60,14 +60,16 @@ class NetworkManager: Networking {
         
         let headers: HTTPHeaders? = headers.map({ HTTPHeaders($0) })
         
-        let dataRequest = AF.request(url,
-                                     method: method,
+        let dataRequest = AF.request(url, method: method,
                                      parameters: parameters,
                                      encoder: encoder,
                                      headers: headers)
             .validate()
-            .responseDecodable { (response: DataResponse<T>) in
-                completion(APIResponse(result: response.result))
+            .responseDecodable { (dataResponse: DataResponse<T, AFError>) in
+                switch dataResponse.result {
+                case .failure(let error): completion(.init(result: .failure(error)))
+                case .success(let decodableObject): completion(.init(result: .success(decodableObject)))
+                }
         }
         
         return DefaultAPIRequest(request: dataRequest)
