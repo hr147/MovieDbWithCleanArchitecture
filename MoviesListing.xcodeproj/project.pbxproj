@@ -52,6 +52,7 @@
 		BEE96D4F22819FBF00C78047 /* MovieListNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE96D4E22819FBF00C78047 /* MovieListNavigator.swift */; };
 		BEF29809227D98E800ADA994 /* DatePickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF29808227D98E800ADA994 /* DatePickerPresenter.swift */; };
 		BEF2980B227DD92400ADA994 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF2980A227DD92400ADA994 /* Date+Extension.swift */; };
+		BEF6469F23CE17C6009FFA46 /* RxSwift+Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF6469E23CE17C6009FFA46 /* RxSwift+Unwrap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		BEE96D4E22819FBF00C78047 /* MovieListNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListNavigator.swift; sourceTree = "<group>"; };
 		BEF29808227D98E800ADA994 /* DatePickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerPresenter.swift; sourceTree = "<group>"; };
 		BEF2980A227DD92400ADA994 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		BEF6469E23CE17C6009FFA46 /* RxSwift+Unwrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxSwift+Unwrap.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 		BE213A3A227AFFFE004EA56C /* RxUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				BEF6469E23CE17C6009FFA46 /* RxSwift+Unwrap.swift */,
 				BE213A3D227B0026004EA56C /* ActivityIndicator.swift */,
 				BE213A3C227B0026004EA56C /* ErrorTracker.swift */,
 				BE213A3B227B0026004EA56C /* Observable+Ext.swift */,
@@ -508,6 +511,7 @@
 				BEF29809227D98E800ADA994 /* DatePickerPresenter.swift in Sources */,
 				BEBF822522783A44004A8392 /* UITableView+Extension.swift in Sources */,
 				BEBF823622785C2F004A8392 /* UIFont+Extension.swift in Sources */,
+				BEF6469F23CE17C6009FFA46 /* RxSwift+Unwrap.swift in Sources */,
 				BE9F8EE9227C207C0062C9B9 /* LazyImageLoader.swift in Sources */,
 				BE2347162275C34700D8E5A0 /* AppDelegate.swift in Sources */,
 				BE213A39227AE0F4004EA56C /* Movie.swift in Sources */,
