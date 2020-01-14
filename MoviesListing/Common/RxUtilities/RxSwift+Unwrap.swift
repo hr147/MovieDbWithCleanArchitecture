@@ -1,11 +1,3 @@
-//
-//  RxSwift+Unwrap.swift
-//  JetJournal
-//
-//  Created by Roman Kyrylenko on 4/4/18.
-//  Copyright © 2017 Yalantis. All rights reserved.
-//
-
 import Foundation
 import RxSwift
 
