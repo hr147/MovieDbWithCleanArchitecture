@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BE124A10227C214700BDEC8E /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9F8EE5227C1D970062C9B9 /* Kingfisher.framework */; };
-		BE124A12227C260E00BDEC8E /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE124A11227C260E00BDEC8E /* RxRelay.framework */; };
+		4DD3B9AD256FECCD007B804F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4DD3B9AC256FECCD007B804F /* Alamofire */; };
+		4DD3B9B2256FED2C007B804F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4DD3B9B1256FED2C007B804F /* Kingfisher */; };
+		4DD3B9B7256FEDE7007B804F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4DD3B9B6256FEDE7007B804F /* RxSwift */; };
+		4DD3B9B9256FEDE7007B804F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 4DD3B9B8256FEDE7007B804F /* RxCocoa */; };
 		BE213A39227AE0F4004EA56C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE213A38227AE0F4004EA56C /* Movie.swift */; };
 		BE213A3E227B0026004EA56C /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE213A3B227B0026004EA56C /* Observable+Ext.swift */; };
 		BE213A3F227B0026004EA56C /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE213A3C227B0026004EA56C /* ErrorTracker.swift */; };
@@ -18,15 +20,7 @@
 		BE23471D2275C34900D8E5A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE23471C2275C34900D8E5A0 /* Assets.xcassets */; };
 		BE2347202275C34900D8E5A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE23471E2275C34900D8E5A0 /* LaunchScreen.storyboard */; };
 		BE23472B2275C34900D8E5A0 /* MoviesListingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE23472A2275C34900D8E5A0 /* MoviesListingTests.swift */; };
-		BE406C812275CDAB00A81504 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE406C7D2275CDAB00A81504 /* RxSwift.framework */; };
-		BE406C822275CDAB00A81504 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE406C7E2275CDAB00A81504 /* RxCocoa.framework */; };
-		BE406C832275CDAB00A81504 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE406C7F2275CDAB00A81504 /* SnapKit.framework */; };
-		BE406C842275CDAB00A81504 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE406C802275CDAB00A81504 /* Alamofire.framework */; };
-		BE6F415E2282FBAC0055F4F2 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F415C2282FA050055F4F2 /* RxAtomic.framework */; };
-		BE6F415F2282FBAC0055F4F2 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F41572282F9400055F4F2 /* RxBlocking.framework */; };
-		BE6F41602282FBAC0055F4F2 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F41562282F93F0055F4F2 /* RxTest.framework */; };
 		BE6F416222845B0C0055F4F2 /* MovieDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F416122845B0C0055F4F2 /* MovieDetailsTests.swift */; };
-		BE6F416422845B3E0055F4F2 /* BaseXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F416322845B3E0055F4F2 /* BaseXCTest.swift */; };
 		BE9F8EE4227C15110062C9B9 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9F8EE3227C15110062C9B9 /* MovieViewModel.swift */; };
 		BE9F8EE9227C207C0062C9B9 /* LazyImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9F8EE8227C207C0062C9B9 /* LazyImageLoader.swift */; };
 		BEBF821422782F9C004A8392 /* AppNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF821322782F9C004A8392 /* AppNavigator.swift */; };
@@ -66,7 +60,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BE124A11227C260E00BDEC8E /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		BE1AE23622955F8300BA7650 /* gomovies-app-davitpetriashvili.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gomovies-app-davitpetriashvili.sketch"; sourceTree = "<group>"; };
 		BE213A38227AE0F4004EA56C /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		BE213A3B227B0026004EA56C /* Observable+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
@@ -81,18 +74,8 @@
 		BE2347262275C34900D8E5A0 /* MoviesListingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesListingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE23472A2275C34900D8E5A0 /* MoviesListingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListingTests.swift; sourceTree = "<group>"; };
 		BE23472C2275C34900D8E5A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE406C7B2275C9F700A81504 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
-		BE406C7D2275CDAB00A81504 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		BE406C7E2275CDAB00A81504 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		BE406C7F2275CDAB00A81504 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
-		BE406C802275CDAB00A81504 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		BE6F41562282F93F0055F4F2 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
-		BE6F41572282F9400055F4F2 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
-		BE6F415C2282FA050055F4F2 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
 		BE6F416122845B0C0055F4F2 /* MovieDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsTests.swift; sourceTree = "<group>"; };
-		BE6F416322845B3E0055F4F2 /* BaseXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseXCTest.swift; sourceTree = "<group>"; };
 		BE9F8EE3227C15110062C9B9 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
-		BE9F8EE5227C1D970062C9B9 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		BE9F8EE8227C207C0062C9B9 /* LazyImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyImageLoader.swift; sourceTree = "<group>"; };
 		BEBF821322782F9C004A8392 /* AppNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
 		BEBF821D22783617004A8392 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
@@ -125,12 +108,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE124A12227C260E00BDEC8E /* RxRelay.framework in Frameworks */,
-				BE124A10227C214700BDEC8E /* Kingfisher.framework in Frameworks */,
-				BE406C812275CDAB00A81504 /* RxSwift.framework in Frameworks */,
-				BE406C822275CDAB00A81504 /* RxCocoa.framework in Frameworks */,
-				BE406C832275CDAB00A81504 /* SnapKit.framework in Frameworks */,
-				BE406C842275CDAB00A81504 /* Alamofire.framework in Frameworks */,
+				4DD3B9B7256FEDE7007B804F /* RxSwift in Frameworks */,
+				4DD3B9B2256FED2C007B804F /* Kingfisher in Frameworks */,
+				4DD3B9B9256FEDE7007B804F /* RxCocoa in Frameworks */,
+				4DD3B9AD256FECCD007B804F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +119,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE6F415E2282FBAC0055F4F2 /* RxAtomic.framework in Frameworks */,
-				BE6F415F2282FBAC0055F4F2 /* RxBlocking.framework in Frameworks */,
-				BE6F41602282FBAC0055F4F2 /* RxTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				BE2347142275C34700D8E5A0 /* MoviesListing */,
-				BE406C7A2275C9D000A81504 /* Carthage */,
 				BE406C7C2275CCDA00A81504 /* Frameworks */,
 				BE2347292275C34900D8E5A0 /* MoviesListingTests */,
 				BE2347132275C34700D8E5A0 /* Products */,
@@ -195,31 +172,13 @@
 				BE23472A2275C34900D8E5A0 /* MoviesListingTests.swift */,
 				BE23472C2275C34900D8E5A0 /* Info.plist */,
 				BE6F416122845B0C0055F4F2 /* MovieDetailsTests.swift */,
-				BE6F416322845B3E0055F4F2 /* BaseXCTest.swift */,
 			);
 			path = MoviesListingTests;
-			sourceTree = "<group>";
-		};
-		BE406C7A2275C9D000A81504 /* Carthage */ = {
-			isa = PBXGroup;
-			children = (
-				BE406C7B2275C9F700A81504 /* Cartfile */,
-			);
-			path = Carthage;
 			sourceTree = "<group>";
 		};
 		BE406C7C2275CCDA00A81504 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BE6F415C2282FA050055F4F2 /* RxAtomic.framework */,
-				BE6F41572282F9400055F4F2 /* RxBlocking.framework */,
-				BE6F41562282F93F0055F4F2 /* RxTest.framework */,
-				BE124A11227C260E00BDEC8E /* RxRelay.framework */,
-				BE9F8EE5227C1D970062C9B9 /* Kingfisher.framework */,
-				BE406C802275CDAB00A81504 /* Alamofire.framework */,
-				BE406C7E2275CDAB00A81504 /* RxCocoa.framework */,
-				BE406C7D2275CDAB00A81504 /* RxSwift.framework */,
-				BE406C7F2275CDAB00A81504 /* SnapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -375,13 +334,18 @@
 				BE23470E2275C34700D8E5A0 /* Sources */,
 				BE23470F2275C34700D8E5A0 /* Frameworks */,
 				BE2347102275C34700D8E5A0 /* Resources */,
-				BE406C852275CDC200A81504 /* Carthage */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MoviesListing;
+			packageProductDependencies = (
+				4DD3B9AC256FECCD007B804F /* Alamofire */,
+				4DD3B9B1256FED2C007B804F /* Kingfisher */,
+				4DD3B9B6256FEDE7007B804F /* RxSwift */,
+				4DD3B9B8256FEDE7007B804F /* RxCocoa */,
+			);
 			productName = MoviesListing;
 			productReference = BE2347122275C34700D8E5A0 /* MoviesListing.app */;
 			productType = "com.apple.product-type.application";
@@ -411,7 +375,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Haroon Ur Rasheed";
 				TargetAttributes = {
 					BE2347112275C34700D8E5A0 = {
@@ -424,7 +388,7 @@
 				};
 			};
 			buildConfigurationList = BE23470D2275C34700D8E5A0 /* Build configuration list for PBXProject "MoviesListing" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -432,6 +396,11 @@
 				Base,
 			);
 			mainGroup = BE2347092275C34700D8E5A0;
+			packageReferences = (
+				4DD3B9AB256FECCD007B804F /* XCRemoteSwiftPackageReference "Alamofire" */,
+				4DD3B9B0256FED2C007B804F /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				4DD3B9B5256FEDE7007B804F /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = BE2347132275C34700D8E5A0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -462,33 +431,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		BE406C852275CDC200A81504 /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
-			);
-			name = Carthage;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BE23470E2275C34700D8E5A0 /* Sources */ = {
@@ -534,7 +476,6 @@
 			files = (
 				BE23472B2275C34900D8E5A0 /* MoviesListingTests.swift in Sources */,
 				BE6F416222845B0C0055F4F2 /* MovieDetailsTests.swift in Sources */,
-				BE6F416422845B3E0055F4F2 /* BaseXCTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +527,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -647,6 +589,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -680,18 +623,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				DEVELOPMENT_TEAM = 5AL843GH38;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MoviesListing/AppStartUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = haroon.rasheed.me.MoviesListing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -701,18 +645,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				DEVELOPMENT_TEAM = 5AL843GH38;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MoviesListing/AppStartUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = haroon.rasheed.me.MoviesListing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -724,10 +669,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MoviesListingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -749,10 +691,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MoviesListingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -799,6 +738,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4DD3B9AB256FECCD007B804F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
+		4DD3B9B0256FED2C007B804F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.15.7;
+			};
+		};
+		4DD3B9B5256FEDE7007B804F /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4DD3B9AC256FECCD007B804F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DD3B9AB256FECCD007B804F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		4DD3B9B1256FED2C007B804F /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DD3B9B0256FED2C007B804F /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		4DD3B9B6256FEDE7007B804F /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DD3B9B5256FEDE7007B804F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		4DD3B9B8256FEDE7007B804F /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DD3B9B5256FEDE7007B804F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BE23470A2275C34700D8E5A0 /* Project object */;
 }

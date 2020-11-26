@@ -9,51 +9,8 @@
 import XCTest
 import RxSwift
 import RxCocoa
-
 @testable import MoviesListing
 
-/*
- 
- struct Output {
- let screenTitle: Signal<String>
- let backgroundURL: Signal<String>
- let posterURL: Signal<String>
- let movieTitle: Signal<String>
- let rating: Signal<String>
- let releaseDate: Signal<String>
- let language: Signal<String>
- let overview: Signal<String>
- }
- 
- 
- let title = input.viewWillAppearTriggered.map({ "Details" })
- 
- let backgroundURL = movieSignal
- .filter({ $0.backdropPath != nil })
- .map({ $0.backdropPath! })
- .map({ Constants.API.imageBaseURL(imageSize: .large) + $0 })
- 
- let posterURL = movieSignal
- .filter({ $0.posterPath != nil })
- .map({ $0.posterPath! })
- .map({ Constants.API.imageBaseURL(imageSize: .thumb) + $0 })
- 
- let movieTitle = movieSignal
- .map({ $0.originalTitle ?? "" })
- 
- let rating = movieSignal
- .map({ String($0.voteAverage ?? 0.0) + " / 10" })
- 
- let releaseDate = movieSignal
- .map({ $0.releaseDate ?? "not found"})
- 
- let language = movieSignal
- .map({ $0.originalLanguage ?? "not found"})
- 
- let overview = movieSignal
- .map({ $0.overview ?? "Sorry there is no overview of this film."})
- 
- */
 class MovieDetailsTests: XCTestCase {
     
     func testMovieDetailInformation() {
