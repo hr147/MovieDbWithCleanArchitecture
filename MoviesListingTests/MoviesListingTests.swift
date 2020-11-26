@@ -9,7 +9,6 @@
 import XCTest
 import RxSwift
 import RxCocoa
-
 @testable import MoviesListing
 
 extension Movie {
