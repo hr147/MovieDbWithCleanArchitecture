@@ -14,4 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: xcodebuild test_without_building -project MoviesListing.xcodeproj -scheme MoviesListing -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=14.0'
+      run: xcodebuild build-for-testing -project MoviesListing.xcodeproj -scheme MoviesListing -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=14.0'
