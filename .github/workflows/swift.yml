@@ -1,0 +1,17 @@
+name: Swift
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: xcodebuild build-for-testing -project MoviesListing.xcodeproj -scheme MoviesListing -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=14.0'
