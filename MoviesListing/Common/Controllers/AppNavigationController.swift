@@ -16,13 +16,15 @@ class AppNavigationController: UINavigationController {
     }
     
     private func setupUI() {
-        navigationBar.barTintColor = .init(color: .standard(.themeColor))
-        navigationBar.tintColor = .white
-        navigationController?.navigationBar.isTranslucent = false
-        navigationBar.titleTextAttributes =
-            [NSAttributedString.Key.foregroundColor: UIColor.white,
-             NSAttributedString.Key.font: UIFont(.avenirDemiBold, size: .standard(.h1))]
-        navigationBar.backgroundColor = .init(color: .standard(.themeColor))
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .init(color: .standard(.themeColor))
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
+                                          NSAttributedString.Key.font: UIFont(.avenirDemiBold, size: .standard(.h1))]
+        
+        navigationBar.standardAppearance = appearance
+        navigationBar.scrollEdgeAppearance = appearance
+        navigationBar.tintColor = .white  
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
